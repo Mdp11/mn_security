@@ -30,8 +30,8 @@ def emptyNet():
 	net.start()
 	CLI( net )
 	#Delete the tunnel before exiting
-	s1.cmd('ip li se dev s1-gre1 down')
-	s1.cmd('ip tun del s1-gre1')
+	s2.cmd('ip li se dev s2-gre1 down')
+	s2.cmd('ip tun del s2-gre1')
 	net.stop()
 
 if __name__ == '__main__':
