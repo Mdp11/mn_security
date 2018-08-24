@@ -18,10 +18,8 @@ def emptyNet():
 	net.addController( 'c0', controller=RemoteController, ip=controller_ip, port=6633 )
 
 	hostBob = net.addHost('bob', cls=PrivateEtc, ip='10.0.0.2/24', mac='00:00:00:00:00:02')
-	hostCarlo = net.addHost('carlo', cls=PrivateEtc, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
 	s2 = net.addSwitch( 's2' )
 	net.addLink( hostBob, s2 )
-	net.addLink( hostCarlo, s2 )
 
 	# Delete old tunnel if still exists
 	s2.cmd('ip tun del s2-gre1')
