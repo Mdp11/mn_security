@@ -1,0 +1,16 @@
+#!/usr/sbin/setkey -f
+
+## config file for Beatrice
+
+## flush SAD and SPD
+flush;
+spdflush;
+
+## add SAs in SAD
+add 10.0.0.1 10.0.0.2 ah 0x1000 -A hmac-sha1 0xaa223344556677889900aabbccddeeff12345678;
+add 10.0.0.2 10.0.0.1 ah 0x2000 -A hmac-sha1 0xbb223344556677889900aabbccddeeff12345678;
+
+## add SPs in SPD
+spdadd 10.0.0.1 10.0.0.2 any -P in  ipsec ah/transport//require;
+spdadd 10.0.0.2 10.0.0.1 any -P out ipsec ah/transport//require;
+
