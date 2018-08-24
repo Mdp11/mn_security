@@ -3,7 +3,7 @@
 from mininet.node import Node
 
 class PrivateEtc( Node ):
-	def config( self, **
+	def config( self, **params)
 		super( PrivateEtc, self).config( **params )
 		etc = '/tmp/etc-%s' % self.name
 		self.cmd( 'mkdir -p', etc )
