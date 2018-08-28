@@ -7,9 +7,10 @@ from mininet.node import Node
 from mininet.cli import CLI
 from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
+from privateEtcHost import PrivateEtcHost
 import sys
 
-class RandomFiles( Node ):
+class RandomFilesHost( Node ):
 
 	def config( self, **params ):
 		super( RandomFiles, self).config( **params )
@@ -47,8 +48,8 @@ class LimitedBwTopo(Topo):
 	
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
-		hostAlice = self.addHost('alice', ip='10.0.0.1/24', cls=RandomFiles, mac='00:00:00:00:00:01')
-		hostBob = self.addHost('bob', ip='10.0.0.2/24', mac='00:00:00:00:00:02')
+		hostAlice = self.addHost('alice', ip='10.0.0.1/24', cls=RandomFilesHost, mac='00:00:00:00:00:01')
+		hostBob = self.addHost('bob', ip='10.0.0.2/24', cls=PrivateEtcHost, mac='00:00:00:00:00:02')
 	
 		self.addLink( centralSwitch, hostAlice, bw=bandwidth)
 		self.addLink( centralSwitch, hostBob, bw=bandwidth)
