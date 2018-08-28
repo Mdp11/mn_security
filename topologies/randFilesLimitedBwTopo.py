@@ -13,7 +13,7 @@ import sys
 class RandomFilesHost( Node ):
 
 	def config( self, **params ):
-		super( RandomFiles, self).config( **params )
+		super( RandomFilesHost, self).config( **params )
 		self.cmd("mkdir /var/www/html/ipsec")
 		self.cmd("openssl rand -out /var/www/html/ipsec/10K 10000")
 		self.cmd("openssl rand -out /var/www/html/ipsec/100K 100000")
@@ -36,7 +36,7 @@ class RandomFilesHost( Node ):
 		self.cmd( 'umount /etc' )
 		self.cmd( 'umount', etc )
 		self.cmd( 'rm -r', etc )
-		super( RandomFiles, self ).terminate()
+		super( RandomFilesHost, self ).terminate()
 
 class LimitedBwTopo(Topo):
     
