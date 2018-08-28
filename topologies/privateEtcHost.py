@@ -4,7 +4,7 @@ from mininet.node import Node
 
 class PrivateEtcHost( Node ):
 	def config( self, **params):
-		super( PrivateEtc, self).config( **params )
+		super( PrivateEtcHost, self).config( **params )
 		etc = '/tmp/etc-%s' % self.name
 		self.cmd( 'mkdir -p', etc )
 		self.cmd( 'mount --bind /etc', etc )
@@ -18,4 +18,4 @@ class PrivateEtcHost( Node ):
 		self.cmd( 'umount /etc' )
 		self.cmd( 'umount', etc )
 		self.cmd( 'rm -r', etc )
-		super( PrivateEtc, self ).terminate()
+		super( PrivateEtcHost, self ).terminate()
