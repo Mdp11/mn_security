@@ -5,16 +5,16 @@ from mininet.topo import Topo
 from mininet.node import Node
 from mininet.cli import CLI
 from mininet.log import setLogLevel
-from privateEtc import PrivateEtc
+from privateEtcHost import PrivateEtcHost
 import sys
 
 class SimpleTopo(Topo):
     
-	"N hosts connected through a switch"
+	"N hosts connected through a switch, each with private /etc directories"
   
 	def addAliceBob(self, hostGroup):
-		hostAlice = self.addHost('alice', cls=PrivateEtc, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
-		hostBob = self.addHost('bob', cls=PrivateEtc, ip='10.0.0.2/24', mac='00:00:00:00:00:02')
+		hostAlice = self.addHost('alice', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
+		hostBob = self.addHost('bob', cls=PrivateEtcHost, ip='10.0.0.2/24', mac='00:00:00:00:00:02')
 		hostGroup.append(hostAlice)
 		hostGroup.append(hostBob)
 
@@ -29,13 +29,13 @@ class SimpleTopo(Topo):
 			self.addAliceBob(hostGroup)
 		if(n == 3):
 		       	self.addAliceBob(hostGroup)
-			hostCarlo = self.addHost('carlo', cls=PrivateEtc, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
+			hostCarlo = self.addHost('carlo', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
 			hostGroup.append(hostCarlo)
 		if(n > 3):
-			h1 = self.addHost('h1', cls=PrivateEtc, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
+			h1 = self.addHost('h1', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
 			hostGroup.append(h1)
 			for k in range(2,n+1):
-				host = self.addHost('h%d' %k, cls=PrivateEtc, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
+				host = self.addHost('h%d' %k, cls=PrivateEtcHost, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
 				hostGroup.append(host)
 
 		# Add links
