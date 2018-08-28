@@ -5,7 +5,7 @@ from mininet.node import Controller, RemoteController, Node
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import Link, Intf
-from privateEtc import PrivateEtc
+from privateEtcHost import PrivateEtcHost
 
 def emptyNet():
 
@@ -17,7 +17,7 @@ def emptyNet():
 
 	net.addController( 'c0', controller=RemoteController, ip=controller_ip, port=6633 )
 
-	hostAlice = net.addHost('alice', cls=PrivateEtc, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
+	hostAlice = net.addHost('alice', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
 	s1 = net.addSwitch('s1')
 	net.addLink(hostAlice, s1)
 
