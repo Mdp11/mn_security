@@ -19,9 +19,22 @@ class RandomFiles( Node ):
 		self.cmd("openssl rand -out /var/www/html/ipsec/1M 1000000")
 		self.cmd("openssl rand -out /var/www/html/ipsec/10M 10000000")
 		self.cmd("openssl rand -out /var/www/html/ipsec/100M 100000000")
+		
+		etc = '/tmp/etc-%s' % self.name
+		self.cmd( 'mkdir -p', etc )
+		self.cmd( 'mount --bind /etc', etc )
+		self.cmd( 'mount -n -t tmpfs tmpfs /etc' )
+		self.cmd( 'ln -s %s/* /etc/' % etc )
+		self.cmd( 'rm -rf /etc/*' )
+		self.cmd( 'cp -a /%s/. /etc/' % etc )
 
 	def terminate( self ):
 		self.cmd("rm -r /var/www/html/ipsec")
+		
+		etc = '/tmp/etc-%s' % self.name
+		self.cmd( 'umount /etc' )
+		self.cmd( 'umount', etc )
+		self.cmd( 'rm -r', etc )
 		super( RandomFiles, self ).terminate()
 
 class LimitedBwTopo(Topo):
