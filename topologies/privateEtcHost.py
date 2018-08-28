@@ -2,7 +2,7 @@
 
 from mininet.node import Node
 
-class PrivateEtc( Node ):
+class PrivateEtcHost( Node ):
 	def config( self, **params):
 		super( PrivateEtc, self).config( **params )
 		etc = '/tmp/etc-%s' % self.name
