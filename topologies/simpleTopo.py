@@ -27,11 +27,11 @@ class SimpleTopo(Topo):
 		hostGroup = []
 		if(n <= 2):
 			self.addAliceBob(hostGroup)
-		if(n == 3):
+		elif(n == 3):
 		       	self.addAliceBob(hostGroup)
 			hostCarlo = self.addHost('carlo', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
 			hostGroup.append(hostCarlo)
-		if(n > 3):
+		elif(n > 3):
 			h1 = self.addHost('h1', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
 			hostGroup.append(h1)
 			for k in range(2,n+1):
