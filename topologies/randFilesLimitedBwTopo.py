@@ -45,6 +45,10 @@ class LimitedBwTopo(Topo):
 	def build(self, bandwidth=10):
 	
 		bandwidth=int(bandwidth)
+		if(bandwidth <= 0):
+			bandwidth=10
+		elif(bandwidth >= 1000):
+			bandwidth=1000
 	
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
