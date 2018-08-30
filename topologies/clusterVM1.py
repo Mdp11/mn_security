@@ -5,7 +5,7 @@ from mininet.node import Controller, RemoteController, Node
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import Link, Intf
-from privateEtc import PrivateEtc
+from privateEtcHost import PrivateEtcHost
 import sys
 
 def emptyNet():
@@ -25,16 +25,16 @@ def emptyNet():
 	hostGroup = []
 
 	if(nHosts==1):
-		hostAlice = net.addHost('alice', cls=PrivateEtc, ip='10.0.0.1/16', mac='00:00:00:00:00:01')
+		hostAlice = net.addHost('alice', cls=PrivateEtcHost, ip='10.0.0.1/16', mac='00:00:00:00:00:01')
 		hostGroup.append(hostAlice)
 	elif(nHosts==2):
-		hostAlice = net.addHost('alice', cls=PrivateEtc, ip='10.0.0.1/16', mac='00:00:00:00:00:01')
+		hostAlice = net.addHost('alice', cls=PrivateEtcHost, ip='10.0.0.1/16', mac='00:00:00:00:00:01')
 		hostGroup.append(hostAlice)
-		hostCarlo = net.addHost('carlo', cls=PrivateEtc, ip='10.0.0.2/16', mac='00:00:00:00:00:02')
+		hostCarlo = net.addHost('carlo', cls=PrivateEtcHost, ip='10.0.0.2/16', mac='00:00:00:00:00:02')
 		hostGroup.append(hostCarlo)
 	elif(nHosts>2):
 		for k in range(1,nHosts+1):
-			host = net.addHost('h1_%d' %k, cls=PrivateEtc, ip='10.0.0.%d/16' %k, mac='%s' %hex(k)[2:].zfill(12))
+			host = net.addHost('h1_%d' %k, cls=PrivateEtcHost, ip='10.0.0.%d/16' %k, mac='%s' %hex(k)[2:].zfill(12))
 			hostGroup.append(host)
 
 	# Add links
