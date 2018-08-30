@@ -35,6 +35,10 @@ class SimpleTopo(Topo):
 			for k in range(1,n+1):
 				host = self.addHost('h%d' %k, cls=PrivateEtcHost, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
 				hostGroup.append(host)
+		elif(n >= 253):
+			for k in range(1,253):
+				host = self.addHost('h%d' %k, cls=PrivateEtcHost, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
+				hostGroup.append(host)
 
 		# Add links
 		for h in hostGroup:
