@@ -9,10 +9,12 @@ from privateEtcHost import PrivateEtcHost
 
 def vm2Net():
 
+	# Set machines' addresses
 	vm1_ip='w.x.y.z'
 	vm2_ip='a.b.c.d'
 	controller_ip='a.b.c.d'
 
+	# Create empty network without building it now
 	net = Mininet( topo=None, build=False)
 
 	# Configure the remote controller
@@ -36,6 +38,7 @@ def vm2Net():
 	
 	# Add the GRE interface to the switch
 	Intf('s2-gre1', node=s2)
+	
 	net.start()
 	CLI( net )
 	
@@ -43,6 +46,7 @@ def vm2Net():
 	s2.cmd('ifconfig s2-gre1 down')
 	s2.cmd('ip tunnel del s2-gre1')
 	s2.cmd('ip link del s2-gre1')
+	
 	net.stop()
 
 if __name__ == '__main__':
