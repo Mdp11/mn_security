@@ -53,7 +53,7 @@ def simpleTopo():
 	
 	# Check arguments passed
 	
-	nHosts = false
+	nHosts = False
 	
 	if(len(sys.argv) > 1 and sys.argv[1].isdigit()):
 		topo = SimpleTopo(sys.argv[1])
@@ -65,7 +65,7 @@ def simpleTopo():
 	if((len(sys.argv) == 2 and sys.argv[1] == 'c') or (len(sys.argv) > 2 and sys.argv[2] == 'c')):
 		net.addNAT().configDefault()
 	else:
-		if (nHosts == false):
+		if (nHosts == False):
 			print "*** Wrong parameters. Usage: python simpleTopo.py [n] [c] - with n integer number of hosts and c to give internet access to the topology. ***"
 	
 	net.start()
