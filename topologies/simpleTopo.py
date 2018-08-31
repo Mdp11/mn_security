@@ -66,7 +66,7 @@ def simpleTopo():
 		net.addNAT().configDefault()
 	else:
 		if (nHosts == False):
-			print "*** Wrong parameters. Usage: python simpleTopo.py [n] [c] - with n integer number of hosts and c to give internet access to the topology. ***"
+			print "*** Wrong parameters. Usage: python simpleTopo.py [n] [c] - with n integer number of hosts and c to give internet access to the topology. Starting topology with default values (2 hosts and no internet access) ***"
 	
 	net.start()
 	CLI(net)
