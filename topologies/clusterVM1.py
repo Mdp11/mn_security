@@ -9,10 +9,12 @@ from privateEtcHost import PrivateEtcHost
 
 def vm1Net():
 
+	# Set machines' addresses
 	vm1_ip='w.x.y.z'
 	vm2_ip='a.b.c.d'
 	controller_ip='a.b.c.d'
 
+	# Create empty network without building it now
 	net = Mininet( topo=None, build=False)
 
 	#Configure the remote controller
