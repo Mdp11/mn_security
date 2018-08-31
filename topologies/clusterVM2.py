@@ -21,10 +21,10 @@ def vm2Net():
 	net.addController( 'c0', controller=RemoteController, ip=controller_ip,	port=6633)
 
 	#Set up hosts, switch and links
-	hostChuck = net.addHost( 'chuck', cls=PrivateEtcHost, ip='10.0.1.1/16', mac='00:00:00:00:01:01' )
-	hostDave = net.addHost('dave', cls=PrivateEtcHost, ip='10.0.1.2/16', mac='00:00:00:00:01:02')
+	hostBob = net.addHost( 'bob', cls=PrivateEtcHost, ip='10.0.0.2/24', mac='00:00:00:00:00:02' )
+	hostDave = net.addHost('dave', cls=PrivateEtcHost, ip='10.0.0.4/24', mac='00:00:00:00:00:04')
 	s2 = net.addSwitch( 's1' )
-	net.addLink( hostChuck, s2 )
+	net.addLink( hostBob, s2 )
 	net.addLink( hostDave, s2 )
 
 	# Delete the old tunnel if still exists
