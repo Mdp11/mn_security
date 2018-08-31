@@ -15,9 +15,9 @@ config setup
 
 conn host-host
 	left=10.0.0.1
-	leftsubnet=10.0.0.0/16
-	right=10.0.1.1
-	rightsubnet=10.0.0.0/16
+	leftsubnet=10.0.0.0/24
+	right=10.0.0.2
+	rightsubnet=10.0.0.0/24
 	authby=psk
 	auto=add
 	leftfirewall=yes
