@@ -28,7 +28,7 @@ class SimpleTopo(Topo):
 		hostGroup = []
 		if(n <= 2):
 			if(n < 2):
-				print "*** Minimum number of hosts is two. Instantiating two hosts. ***
+				print "*** Minimum number of hosts is two. Instantiating two hosts. ***"
 			self.addAliceBob(hostGroup)
 		elif(n == 3):
 		       	self.addAliceBob(hostGroup)
@@ -40,7 +40,7 @@ class SimpleTopo(Topo):
 				hostGroup.append(host)
 		elif(n >= 253):
 			if(n > 253)
-				print "*** Maximum number of hosts is 253. Instantiating 253 hosts. ***
+				print "*** Maximum number of hosts is 253. Instantiating 253 hosts. ***"
 			for k in range(1,253):
 				host = self.addHost('h%d' %k, cls=PrivateEtcHost, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
 				hostGroup.append(host)
