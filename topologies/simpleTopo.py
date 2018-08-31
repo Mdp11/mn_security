@@ -57,7 +57,7 @@ def simpleTopo():
 	
 	if(len(sys.argv) > 1 and sys.argv[1].isdigit()):
 		topo = SimpleTopo(sys.argv[1])
-		nHosts = true
+		nHosts = True
 	else:
 		topo = SimpleTopo()
 
