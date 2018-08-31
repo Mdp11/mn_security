@@ -66,7 +66,7 @@ def limitedBwTopo():
 			float(sys.argv[1])
 			topo = LimitedBwTopo(sys.argv[1])
 		except ValueError:
-			print "*** Ignoring argument, only numbers are valid ***
+			print "*** Ignoring argument, only numbers are valid ***"
 			topo = LimitedBwTopo()
 	else:
 		topo = LimitedBwTopo()
