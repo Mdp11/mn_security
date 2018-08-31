@@ -46,7 +46,7 @@ class LimitedBwTopo(Topo):
 	
 		bandwidth=int(bandwidth)
 		if(bandwidth <= 0):
-			bandwidth=10
+			bandwidth=1
 		elif(bandwidth >= 1000):
 			bandwidth=1000
 	
