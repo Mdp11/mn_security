@@ -25,7 +25,7 @@ def vm1Net():
 	net.addLink( hostAlice, s1 )
 	net.addLink( hostBob, s1 )
 
-	# Delete old tunnel if still exists
+	# Delete old tunnel if it still exists
 	s1.cmd('ifconfig s1-gre1 down')
 	s1.cmd('ip tunnel del s1-gre1')
 	s1.cmd('ip link del s1-gre1')
@@ -36,6 +36,7 @@ def vm1Net():
 	
 	#Add the GRE interface to the switch
 	Intf( 's1-gre1', node=s1 )
+	
 	net.start()
 	CLI( net )
 	
