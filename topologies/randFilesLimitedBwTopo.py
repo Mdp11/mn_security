@@ -42,12 +42,14 @@ class LimitedBwTopo(Topo):
     
 	"N hosts connected through a switch"
 
-	def build(self, bandwidth=10):
+	def build(self, bandwidth=5):
 	
-		bandwidth=int(bandwidth)
+		bandwidth=float(bandwidth)
 		if(bandwidth <= 0):
-			bandwidth=1
+			print "*** Bandwidth can not be negative. Setting it to the minimum value ***"
+			bandwidth=0.01
 		elif(bandwidth >= 1000):
+			print "*** Maximum bandwidth is 1000 Mbps. Setting it to the maximum value ***"
 			bandwidth=1000
 	
 		# Add hosts and switch
@@ -59,8 +61,13 @@ class LimitedBwTopo(Topo):
 		self.addLink( centralSwitch, hostBob, bw=bandwidth)
         
 def limitedBwTopo(): 
-	if(len(sys.argv) > 1 and sys.argv[1].isdigit()):
-		topo = LimitedBwTopo(sys.argv[1])
+	if(len(sys.argv) > 1):
+		try:
+			float(sys.argv[1])
+			topo = LimitedBwTopo(sys.argv[1])
+		except ValueError:
+			print "*** Ignoring argument, only numbers are valid ***
+			topo = LimitedBwTopo()
 	else:
 		topo = LimitedBwTopo()
 	net = Mininet(topo, link=TCLink)
