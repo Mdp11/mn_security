@@ -11,10 +11,8 @@ import sys
 
 class SimpleTopo(Topo):
 
-	def build(self, n=2):
-	
-		n=int(n)
-	
+	def build(self):
+
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
 		hostAlice = self.addHost('alice', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01', cpu=.1)
@@ -22,13 +20,13 @@ class SimpleTopo(Topo):
 		hostChuck = self.addHost('chuck', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
 		
 		# Add links
-    self.addLink( centralSwitch, hostAlice)
-    self.addLink( centralSwitch, hostBob)
-    self.addLink( centralSwitch, hostChuck)
+		self.addLink( centralSwitch, hostAlice)
+		self.addLink( centralSwitch, hostBob)
+		self.addLink( centralSwitch, hostChuck)
        
 def limitedCPU(): 
 	topo = LimitedCPU()
-  net = Mininet( topo=topo, host=CPULimitedHost)
+	net = Mininet( topo=topo, host=CPULimitedHost)
 	net.start()
 	CLI(net)
 	net.stop()
