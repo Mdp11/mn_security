@@ -9,7 +9,7 @@ from privateEtcHost import PrivateEtcHost
 from mininet.node import CPULimitedHost
 import sys
 
-class SimpleTopo(Topo):
+class LimitedCPU(Topo):
 
 	def build(self):
 
