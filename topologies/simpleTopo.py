@@ -30,20 +30,12 @@ class SimpleTopo(Topo):
 			if(n < 2):
 				print "*** Minimum number of hosts is two. Instantiating two hosts. ***"
 			self.addAliceBob(hostGroup)
-		elif(n == 3):
+		elif(n >= 3):
+			if(n > 3):
+				print "*** Maximum number of hosts is three. Instantiating three hosts. ***"
 		       	self.addAliceBob(hostGroup)
 			hostCarlo = self.addHost('carlo', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
 			hostGroup.append(hostCarlo)
-		elif(n > 3):
-			for k in range(1,n+1):
-				host = self.addHost('h%d' %k, cls=PrivateEtcHost, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
-				hostGroup.append(host)
-		elif(n >= 253):
-			if(n > 253):
-				print "*** Maximum number of hosts is 253. Instantiating 253 hosts. ***"
-			for k in range(1,253):
-				host = self.addHost('h%d' %k, cls=PrivateEtcHost, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
-				hostGroup.append(host)
 
 		# Add links
 		for h in hostGroup:
@@ -66,7 +58,7 @@ def simpleTopo():
 		net.addNAT().configDefault()
 	else:
 		if (nHosts == False and len(sys.argv) >= 2):
-			print "*** Wrong parameters. Usage: python simpleTopo.py [n] [c] - with n integer number of hosts and c to give internet access to the topology. Starting topology with default values (2 hosts and no internet access) ***"
+			print "*** Wrong parameters. Usage: python simpleTopo.py [n] [c] - with n integer number of hosts (2 or 3) and c to give internet access to the topology. Starting topology with default values (2 hosts and no internet access) ***"
 	
 	net.start()
 	CLI(net)
