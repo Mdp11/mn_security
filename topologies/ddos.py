@@ -20,7 +20,7 @@ class SimpleTopo(Topo):
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
 		hostGroup = []
-		h1 = self.addHost('h1', ip='10.0.0.1/24', mac='00:00:00:00:00:01', cpu=.001)
+		h1 = self.addHost('h1', ip='10.0.0.1/24', mac='00:00:00:00:00:01', cpu=.05)
 		for k in range(2,n+1):
 			host = self.addHost('h%d' %k, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
 			hostGroup.append(host)
