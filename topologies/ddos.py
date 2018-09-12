@@ -21,7 +21,7 @@ class SimpleTopo(Topo):
 		hostGroup = []
 		attacker = self.addHost('alice', ip='10.0.0.101/24', mac='00:00:00:11:11:11')
 		victim = self.addHost('h1', ip='10.0.0.1/24', mac='00:00:00:00:00:01')
-		for k in range(1,n+1):
+		for k in range(2,n+1):
 			host = self.addHost('h%d' %k, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
 			hostGroup.append(host)
 
