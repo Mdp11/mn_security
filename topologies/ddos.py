@@ -16,19 +16,17 @@ class SimpleTopo(Topo):
 		n=int(n)
 	
 		# Add hosts and switch
-		rightSwitch = self.addSwitch('s1')
-		leftSwitch = self.addSwitch('s2')
+		centralSwitch = self.addSwitch('s1')
 		hostGroup = []
-		attacker = self.addHost('alice', ip='10.0.0.101/24', mac='00:00:00:11:11:11')
-		victim = self.addHost('h1', ip='10.0.0.1/24', mac='00:00:00:00:00:01')
+		hostAlice = self.addHost('alice', ip='10.0.0.101/24', mac='00:00:00:11:11:11')
+		h1 = self.addHost('h1', ip='10.0.0.1/24', mac='00:00:00:00:00:01')
 		for k in range(2,n+1):
 			host = self.addHost('h%d' %k, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
 			hostGroup.append(host)
 
 		# Add links
 		self.addLink(centralSwitch, hostAlice)
-		self.addLink(centralSwitch, outerSwitch)
-		self.addLink(outerSwitch, hostH1)
+		self.addLink(centralSwitch, h1)
 		for h in hostGroup:
 			self.addLink( centralSwitch, h)  
        
