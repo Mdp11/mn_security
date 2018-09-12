@@ -11,17 +11,13 @@ class SimpleTopo(Topo):
     
 	"100 hosts connected through a switch"
   
-	def build(self, n=2):
-	
-		n=int(n)
+	def build(self):
 		
-		if(n>100):
-			n=100
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
 		hostGroup = []
 		h1 = self.addHost('h1', ip='10.0.0.1/24', mac='00:00:00:00:00:01', cpu=.05)
-		for k in range(2,n+1):
+		for k in range(2,51):
 			host = self.addHost('h%d' %k, ip='10.0.0.%d/24' %k, mac='%s' %hex(k)[2:].zfill(12))
 			hostGroup.append(host)
 
