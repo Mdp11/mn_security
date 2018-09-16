@@ -1,0 +1,5 @@
+ipv4_bind_addresses = "127.0.0.1, 10.0.0.2"
+chroot_dir = "/etc/maradns"
+recursive_acl = "127.0.0.0/24, 10.0.0.0/24"
+upstream_servers = {}
+upstream_servers["."] = "8.8.8.8, 8.8.4.4"
