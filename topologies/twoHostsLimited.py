@@ -9,7 +9,7 @@ import sys
 
 class TwoHostsLimited(Topo):
     
-	"2 hosts connected through a switch, with limited CPU"
+	"2 hosts connected through a switch, one with 5% of the system CPU, the other with the 50%."
 
 	def build(self):
 
