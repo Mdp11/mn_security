@@ -26,14 +26,12 @@ class SimpleTopo(Topo):
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
 		hostGroup = []
-		if(n <= 2):
-			if(n < 2):
-				print "*** Minimum number of hosts is two. Instantiating two hosts. ***"
-			self.addAliceBob(hostGroup)
+		self.addAliceBob(hostGroup)
+		if(n < 2):
+			print "*** Minimum number of hosts is two. Instantiating two hosts. ***"
 		elif(n >= 3):
 			if(n > 3):
 				print "*** Maximum number of hosts is three. Instantiating three hosts. ***"
-		       	self.addAliceBob(hostGroup)
 			hostChuck = self.addHost('chuck', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
 			hostGroup.append(hostChuck)
 
