@@ -7,9 +7,6 @@ from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from privateEtcHost import PrivateEtcHost
 
-from sys import exit, stdin, argv
-import os
-
 class DHCPTopo( Topo ):
 
 	def build( self ):
@@ -25,7 +22,7 @@ class DHCPTopo( Topo ):
 		self.addLink( hostBob, switch, bw=10, delay='500ms' )
 
 
-def dhcpdemo():
+def dhcp():
 
 	topo = DHCPTopo()
 	net = Mininet( topo=topo, link=TCLink )
@@ -37,4 +34,4 @@ def dhcpdemo():
 
 if __name__ == '__main__':
     setLogLevel( 'info' )
-    dhcpdemo()
+    dhcp()
