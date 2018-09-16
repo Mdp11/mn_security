@@ -22,10 +22,8 @@ def vm2Net():
 
 	#Set up hosts, switch and links
 	hostBob = net.addHost( 'bob', cls=PrivateEtcHost, ip='10.0.0.2/24', mac='00:00:00:00:00:02' )
-	hostDave = net.addHost('dave', cls=PrivateEtcHost, ip='10.0.0.4/24', mac='00:00:00:00:00:04')
 	s2 = net.addSwitch( 's2' )
 	net.addLink( hostBob, s2 )
-	net.addLink( hostDave, s2 )
 
 	# Delete the old tunnel if still exists
 	s2.cmd('ifconfig s2-gre1 down')
