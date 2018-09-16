@@ -13,14 +13,14 @@ class DHCPTopo( Topo ):
 
 	def build( self ):
 		
-		#Add hosts and switch
+		# Add hosts and switch
 		switch = self.addSwitch( 's1' )
 
 		hostAlice = self.addHost( 'alice', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01' )
 		hostBob = self.addHost( 'bob', cls=PrivateEtcHost, ip='10.0.0.2/24', mac='00:00:00:00:00:02' )
 		hostChuck = self.addHost( 'chuck', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03' )
 
-		#Add links
+		# Add links
 		self.addLink( hostAlice, switch )
 		self.addLink( hostChuck, switch )
 		self.addLink( hostBob, switch, bw=10, delay='500ms' )
