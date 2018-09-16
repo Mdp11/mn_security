@@ -78,7 +78,7 @@ def limitedBwTopo():
 			float(sys.argv[1])
 			topo = LimitedBwTopo(sys.argv[1])
 		except ValueError:
-			print "*** Wrong parameters. Usage: python randFilesLimitedBwTopo.py [b] - with b float value of links' bandwidth. ***"
+			print "*** Wrong parameters. Usage: python randFilesLimitedBwTopo.py [b] - with b float value of links' bandwidth in Mb. ***"
 			topo = LimitedBwTopo()
 	else:
 		topo = LimitedBwTopo()
