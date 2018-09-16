@@ -9,7 +9,7 @@ import sys
 
 class SimpleTopo(Topo):
     
-	"100 hosts connected through a switch"
+	"50 hosts connected through a switch"
   
 	def build(self):
 		
@@ -27,17 +27,8 @@ class SimpleTopo(Topo):
 			self.addLink( centralSwitch, h)  
        
 def simpleTopo(): 
-	
-	# Check arguments passed
-	
-	nHosts = False
-	
-	if(len(sys.argv) > 1 and sys.argv[1].isdigit()):
-		topo = SimpleTopo(sys.argv[1])
-		nHosts = True
-	else:
-		topo = SimpleTopo()
 
+	topo = SimpleTopo()
 	net = Mininet( topo)
 	net.start()
 	CLI(net)
