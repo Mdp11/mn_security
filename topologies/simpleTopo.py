@@ -10,7 +10,7 @@ import sys
 
 class SimpleTopo(Topo):
     
-	"N hosts connected through a switch, each with private /etc directories"
+	"2 or 3 hosts connected through a switch, each with private /etc directories"
   
 	# Add Alice and Bob hosts
 	def addAliceBob(self, hostGroup):
@@ -34,8 +34,8 @@ class SimpleTopo(Topo):
 			if(n > 3):
 				print "*** Maximum number of hosts is three. Instantiating three hosts. ***"
 		       	self.addAliceBob(hostGroup)
-			hostCarlo = self.addHost('carlo', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
-			hostGroup.append(hostCarlo)
+			hostChuck = self.addHost('chuck', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
+			hostGroup.append(hostChuck)
 
 		# Add links
 		for h in hostGroup:
