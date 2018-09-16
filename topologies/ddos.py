@@ -9,7 +9,7 @@ import sys
 
 class SimpleTopo(Topo):
     
-	"50 hosts connected through a switch, with h1 getting 0.05 of the available CPU"
+	"50 hosts connected through a switch, with h1 getting only 5% of the available CPU"
   
 	def build(self):
 		
