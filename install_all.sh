@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo apt-get install apache2-bin -y
+sudo apt-get install apache2 -y
 sudo apt-get install pure-ftpd -y
 sudo apt-get install xinetd telnetd -y
 sudo apt-get install dillo -y
