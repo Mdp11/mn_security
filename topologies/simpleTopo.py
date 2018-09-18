@@ -10,7 +10,7 @@ import sys
 
 class SimpleTopo(Topo):
     
-	"2 or 3 hosts connected through a switch, each with private /etc directories"
+	# 2 or 3 hosts connected through a switch, each with private /etc directories"
   
 	# Add Alice and Bob hosts
 	def addAliceBob(self, hostGroup):
