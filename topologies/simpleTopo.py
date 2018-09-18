@@ -57,7 +57,8 @@ def simpleTopo():
 		topo = SimpleTopo()
 
 	net = Mininet( topo )
-	if((len(sys.argv) == 2 and sys.argv[1] == 'c') or (len(sys.argv) > 2 and sys.argv[2] == 'c')):
+	if((len(sys.argv) == 2 and sys.argv[1] == 'c') or
+	   (len(sys.argv) > 2 and sys.argv[2] == 'c')):
 		net.addNAT().configDefault()
 	else:
 		if (nHosts == False and len(sys.argv) >= 2):
@@ -65,7 +66,7 @@ def simpleTopo():
 			print "*** Usage: python simpleTopo.py [n] [c] ***"
 			print "*** with n integer number of hosts (optional) that can be 2 or 3"
 			print "*** and c to give internet access to the topology. ***"
-			print "*** Starting topology with default values (2 hosts and no internet access) ***"
+			print "*** Starting topology with 2 hosts and no internet access ***"
 	
 	net.start()
 	CLI(net)
