@@ -9,7 +9,7 @@ import sys
 
 class DDoS(Topo):
     
-	# 50 hosts connected through a switch, and h1 gets only 5% of the available CPU"
+	# 50 hosts connected through a switch, and h1 gets only 5% of the available CPU
   
 	def build(self):
 		
