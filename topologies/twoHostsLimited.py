@@ -13,8 +13,7 @@ class TwoHostsLimited(Topo):
 	# Alice with 5% of the system CPU, Bob with the 50%
 
 	def build(self):
-
-	
+		
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
 		hostAlice = self.addHost('alice', ip='10.0.0.1/24', mac='00:00:00:00:00:01',
