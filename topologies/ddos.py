@@ -7,7 +7,7 @@ from mininet.cli import CLI
 from mininet.log import setLogLevel
 import sys
 
-class SimpleTopo(Topo):
+class DDos(Topo):
     
 	"50 hosts connected through a switch, with h1 getting only 5% of the available CPU"
   
@@ -26,10 +26,10 @@ class SimpleTopo(Topo):
 		for h in hostGroup:
 			self.addLink( centralSwitch, h)  
        
-def simpleTopo(): 
+def ddos(): 
 
-	topo = SimpleTopo()
-	net = Mininet( topo)
+	topo = DDos()
+	net = Mininet( topo )
 	net.start()
 	CLI(net)
 	net.stop()
@@ -37,4 +37,4 @@ def simpleTopo():
 
 if __name__ == '__main__':
 	setLogLevel( 'info' )
-	simpleTopo()
+	ddos()
