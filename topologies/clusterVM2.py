@@ -20,8 +20,9 @@ def vm2Net():
 	# Configure the remote controller
 	net.addController( 'c0', controller=RemoteController, ip=controller_ip,	port=6633)
 
-	#Set up hosts, switch and links
-	hostBob = net.addHost( 'bob', cls=PrivateEtcHost, ip='10.0.0.2/24', mac='00:00:00:00:00:02' )
+	# Add hosts, switch and links
+	hostBob = net.addHost( 'bob', ip='10.0.0.2/24', mac='00:00:00:00:00:02',
+			     cls=PrivateEtcHost )
 	s2 = net.addSwitch( 's2' )
 	net.addLink( hostBob, s2 )
 
