@@ -7,7 +7,7 @@ from mininet.cli import CLI
 from mininet.log import setLogLevel
 import sys
 
-class DDos(Topo):
+class DDoS(Topo):
     
 	"50 hosts connected through a switch, and h1 gets only 5% of the available CPU"
   
@@ -29,7 +29,7 @@ class DDos(Topo):
        
 def ddos(): 
 
-	topo = DDos()
+	topo = DDoS()
 	net = Mininet( topo )
 	net.start()
 	CLI(net)
