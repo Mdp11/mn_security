@@ -54,17 +54,21 @@ class LimitedBwTopo(Topo):
 	
 		# Configure bandwidth value
 		bandwidth=float(bandwidth)
-		if(bandwidth <= 0):
-			print "*** Bandwidth can not be negative. Setting it to the minimum value ***"
+		if(bandwidth <= 0.01):
+			print "*** Minimum bandwidth is 0.01 Mbps ***"
+			print "*** Setting it to the minimum value ***"
 			bandwidth=0.01
 		elif(bandwidth >= 1000):
-			print "*** Maximum bandwidth is 1000 Mbps. Setting it to the maximum value ***"
+			print "*** Maximum bandwidth is 1000 Mbps ***"
+			print "*** Setting it to the maximum value ***"
 			bandwidth=1000
 	
 		# Add hosts and switch
 		centralSwitch = self.addSwitch('s1')
-		hostAlice = self.addHost('alice', ip='10.0.0.1/24', cls=RandomFilesHost, mac='00:00:00:00:00:01')
-		hostBob = self.addHost('bob', ip='10.0.0.2/24', cls=PrivateEtcHost, mac='00:00:00:00:00:02')
+		hostAlice = self.addHost('alice', ip='10.0.0.1/24', mac='00:00:00:00:00:01',
+					 cls=RandomFilesHost)
+		hostBob = self.addHost('bob', ip='10.0.0.2/24', mac='00:00:00:00:00:02',
+				       cls=PrivateEtcHost)
 	
 		# Add links
 		self.addLink( centralSwitch, hostAlice, bw=bandwidth)
@@ -78,7 +82,9 @@ def limitedBwTopo():
 			float(sys.argv[1])
 			topo = LimitedBwTopo(sys.argv[1])
 		except ValueError:
-			print "*** Wrong parameters. Usage: python randFilesLimitedBwTopo.py [b] - with b float value of links' bandwidth in Mb. ***"
+			print "*** Wrong parameters ***"
+			print "*** Usage: python randFilesLimitedBwTopo.py [b] ***
+			print "*** with b float value of links' bandwidth in Mbps. ***"
 			topo = LimitedBwTopo()
 	else:
 		topo = LimitedBwTopo()
