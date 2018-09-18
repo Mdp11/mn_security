@@ -9,16 +9,20 @@ from privateEtcHost import PrivateEtcHost
 
 class DHCPTopo( Topo ):
 	
-	"3 hosts connected through a switch, with one being connected to a link with limited bandiwdth and 500ms delay"
+	# 3 hosts connected through a switch, with one being connected
+	# to a link with limited bandiwdth and 500ms of delay"
 
 	def build( self ):
 		
 		# Add hosts and switch
 		switch = self.addSwitch( 's1' )
 
-		hostAlice = self.addHost( 'alice', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01' )
-		hostBob = self.addHost( 'bob', cls=PrivateEtcHost, ip='10.0.0.2/24', mac='00:00:00:00:00:02' )
-		hostChuck = self.addHost( 'chuck', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03' )
+		hostAlice = self.addHost( 'alice', ip='10.0.0.1/24', mac='00:00:00:00:00:01',
+					 cls=PrivateEtcHost )
+		hostBob = self.addHost( 'bob', ip='10.0.0.2/24', mac='00:00:00:00:00:02',
+				       cls=PrivateEtcHost )
+		hostChuck = self.addHost( 'chuck', ip='10.0.0.3/24', mac='00:00:00:00:00:03',
+					 cls=PrivateEtcHost )
 
 		# Add links
 		self.addLink( hostAlice, switch )
