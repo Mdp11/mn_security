@@ -14,8 +14,10 @@ class SimpleTopo(Topo):
   
 	# Add Alice and Bob hosts
 	def addAliceBob(self, hostGroup):
-		hostAlice = self.addHost('alice', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01')
-		hostBob = self.addHost('bob', cls=PrivateEtcHost, ip='10.0.0.2/24', mac='00:00:00:00:00:02')
+		hostAlice = self.addHost('alice', ip='10.0.0.1/24', mac='00:00:00:00:00:01',
+					 cls=PrivateEtcHost)
+		hostBob = self.addHost('bob', ip='10.0.0.2/24', mac='00:00:00:00:00:02',
+				       cls=PrivateEtcHost)
 		hostGroup.append(hostAlice)
 		hostGroup.append(hostBob)
 
@@ -28,11 +30,14 @@ class SimpleTopo(Topo):
 		hostGroup = []
 		self.addAliceBob(hostGroup)
 		if(n < 2):
-			print "*** Minimum number of hosts is two. Instantiating two hosts. ***"
+			print "*** Minimum number of hosts is two ***"
+			print "*** Instantiating two hosts ***"
 		elif(n >= 3):
 			if(n > 3):
-				print "*** Maximum number of hosts is three. Instantiating three hosts. ***"
-			hostChuck = self.addHost('chuck', cls=PrivateEtcHost, ip='10.0.0.3/24', mac='00:00:00:00:00:03')
+				print "*** Maximum number of hosts is three ***"
+				print "*** Instantiating three hosts ***"
+			hostChuck = self.addHost('chuck', ip='10.0.0.3/24', mac='00:00:00:00:00:03',
+						 cls=PrivateEtcHost)
 			hostGroup.append(hostChuck)
 
 		# Add links
@@ -56,7 +61,11 @@ def simpleTopo():
 		net.addNAT().configDefault()
 	else:
 		if (nHosts == False and len(sys.argv) >= 2):
-			print "*** Wrong parameters. Usage: python simpleTopo.py [n] [c] - with n integer number of hosts (optional) that can be 2 or 3, and c to give internet access to the topology. Starting topology with default values (2 hosts and no internet access) ***"
+			print "*** Wrong parameters ***"
+			print "*** Usage: python simpleTopo.py [n] [c] ***"
+			print "*** with n integer number of hosts (optional) that can be 2 or 3"
+			print "*** and c to give internet access to the topology. ***"
+			print "*** Starting topology with default values (2 hosts and no internet access) ***"
 	
 	net.start()
 	CLI(net)
