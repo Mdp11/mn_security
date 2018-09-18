@@ -17,11 +17,12 @@ def vm1Net():
 	# Create empty network without building it now
 	net = Mininet( topo=None, build=False)
 
-	#Configure the remote controller
+	# Configure the remote controller
 	net.addController( 'c0', controller=RemoteController, ip=controller_ip,	port=6633)
 
-	#Set up hosts, switch and links
-	hostAlice = net.addHost( 'alice', cls=PrivateEtcHost, ip='10.0.0.1/24', mac='00:00:00:00:00:01' )
+	# Add hosts, switch and links
+	hostAlice = net.addHost( 'alice', ip='10.0.0.1/24', mac='00:00:00:00:00:01',
+			       cls=PrivateEtcHost )
 	s1 = net.addSwitch( 's1' )
 	net.addLink( hostAlice, s1 )
 
@@ -34,13 +35,13 @@ def vm1Net():
 	s1.cmd('ip link add s1-gre1 type gretap local '+vm1_ip+' remote '+vm2_ip+' ttl 64')
 	s1.cmd('ip link set dev s1-gre1 up')
 	
-	#Add the GRE interface to the switch
+	# Add the GRE interface to the switch
 	Intf( 's1-gre1', node=s1 )
 	
 	net.start()
 	CLI( net )
 	
-	#Delete the tunnel before exiting
+	# Delete the tunnel before exiting
 	s1.cmd('ifconfig s1-gre1 down')
 	s1.cmd('ip tunnel del s1-gre1')
 	s1.cmd('ip link del s1-gre1')
