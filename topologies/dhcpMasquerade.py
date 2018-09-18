@@ -9,7 +9,7 @@ from privateEtcHost import PrivateEtcHost
 
 class DHCPTopo( Topo ):
 	
-	"3 hosts connected through a switch, with one being connected to a link limited bandiwdth and 500ms delay"
+	"3 hosts connected through a switch, with one being connected to a link with limited bandiwdth and 500ms delay"
 
 	def build( self ):
 		
