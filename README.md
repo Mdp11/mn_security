@@ -7,3 +7,5 @@ There is no mandatory knowledge required to follow this work, since all the atta
 mechanisms, commands and tools illustrated are explained, but basic knowledge of Linux systems,
 networking and cybersecurity in general, would help to grasp the concepts better and
 faster.
+
+The *report.pdf* file contains the full manual together with information about importance of cybersecurity and virtual environments.
