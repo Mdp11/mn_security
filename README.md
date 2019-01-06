@@ -8,4 +8,4 @@ mechanisms, commands and tools illustrated are explained, but basic knowledge of
 networking and cybersecurity in general, would help to grasp the concepts better and
 faster.
 
-The *report.pdf* file contains the full manual together with information about importance of cybersecurity and virtual environments.
+The *report.pdf* file contains the full manual together with information about the importance of cybersecurity and a brief analysis of virtual environments.
